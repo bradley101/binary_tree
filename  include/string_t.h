@@ -14,8 +14,9 @@ struct string_t : protected serializable, public printable {
     string_t(type i) : val(i) {}
     string_t(const string_t& i) : val(i.val) {}
 
-    void operator=(const string_t& i) {
+    string_t& operator=(const string_t& i) {
         val = i.val;
+        return *this;
     }
 
     inline type get() { return val; }
